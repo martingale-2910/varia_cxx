@@ -34,13 +34,14 @@ int main(int argc, char** argv) {
         }
     }
 
-    double mc_avg = 0;
+    double mc_sum = 0;
     for(uint np = 0; np < n_paths; ++np) {
-        mc_avg += std::max(s[np] - k, 0.0);
+        mc_sum += std::max(s[np] - k, 0.0);
     }
+    double mc_avg = mc_sum/n_paths;
 
     auto end = std::chrono::steady_clock::now();
 
-    std::cout << "European Option MC price = " << mc_avg/n_paths << std::endl;
+    std::cout << "European Option MC price = " << mc_avg << std::endl;
     std::cout << "Computation duration = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 }
