@@ -40,3 +40,7 @@ clean:
 	@echo 'Cleaning $(OBJ_DIR) and $(TARGET_DIR)'
 	rm -rf $(OBJ_DIR)
 	rm -rf $(TARGET_DIR)
+
+cleanall:
+	@echo 'Cleaning all build directories'
+	rm -rf $(BUILD_DIR)
